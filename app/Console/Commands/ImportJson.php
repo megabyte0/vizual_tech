@@ -125,18 +125,31 @@ class ImportJson extends Command
         }
         $to_insert=[];
         $to_update=[];
+        $upserted=[];
         foreach ($json as $item) {
             if (array_key_exists('characteristics', $item)) {
                 foreach ($item['characteristics'] as $key => $value) {
+                    if (!array_key_exists($item['id'],$upserted)) {
+                        $upserted[$item['id']]=[];
+                    }
                     if ((!array_key_exists($item['id'],$already_in_db))||
                         (!array_key_exists($char_name_id_map[$key],$already_in_db[$item['id']]))) {
-                        $to_insert[]=['prod_id'=>$item['id'],
-                            'characteristic_id'=>$char_name_id_map[$key],
-                            'value'=>$value];
-                        $to_delete[$item['id']][$char_name_id_map[$key]]=NULL;
-                    } elseif ($already_in_db[$item['id']][$char_name_id_map[$key]]->value!==$value) {
-                        $to_update[]=['item'=>$item,'value'=>$value];
-                        $to_delete[$item['id']][$char_name_id_map[$key]]=NULL;
+                        if (!array_key_exists($char_name_id_map[$key],$upserted[$item['id']])) {
+                            $to_insert[] = ['prod_id' => $item['id'],
+                                'characteristic_id' => $char_name_id_map[$key],
+                                'value' => $value];
+                            $to_delete[$item['id']][$char_name_id_map[$key]] = NULL;
+                            $upserted[$item['id']][$char_name_id_map[$key]] = NULL;
+                        }
+                    } else {
+                        if ($already_in_db[$item['id']][$char_name_id_map[$key]]->value!==$value) {
+                            if (!array_key_exists($char_name_id_map[$key], $upserted[$item['id']])) {
+                                $to_update[] = ['item' => $already_in_db[$item['id']][$char_name_id_map[$key]],
+                                    'value' => $value];
+                            }
+                        }
+                        $to_delete[$item['id']][$char_name_id_map[$key]] = NULL;
+                        $upserted[$item['id']][$char_name_id_map[$key]] = NULL;
                     }
                 }
             }
