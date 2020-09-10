@@ -3,4 +3,6 @@ Basically it's a fresh bitnami/laravel docker installation with beginning of the
 ## Usage  
 To use: `docker-compose up`  
 Update/load json into db: `docker-compose exec myapp php artisan import:json ./storage/prods.json`  
-`php artisan import:json ./storage/prods.json` also can be used in cron. 
+`php artisan import:json ./storage/prods.json` also can be used in cron.
+
+Some back-end: `/api/prods?color=green&taste=acidic&name=lime` 
