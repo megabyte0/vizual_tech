@@ -1,0 +1,100 @@
+[
+  {
+    "id":1,
+    "name": "Small red button",
+    "price": 30,
+    "characteristics":{
+      "color": "red"
+    }
+  },
+  {
+    "id":2,
+    "name": "Green acidic lime",
+    "price": 40,
+    "characteristics":{
+      "color": "green",
+      "taste": "acidic"
+    }
+  },
+  {
+    "id":3,
+    "name": "Medium white sushi",
+    "price": 55,
+    "characteristics":{
+      "size": "medium",
+      "color": "white",
+      "taste": "unami"
+    }
+  },
+  {
+    "id":4,
+    "name": "Big red button",
+    "price": 70,
+    "characteristics":{
+      "color": "red"
+    }
+  },
+  {
+    "id":5,
+    "name": "Small loud bell",
+    "price": 30,
+    "characteristics":{
+      "size": "small",
+      "sounds": "loud"
+    }
+  },
+  {
+    "id":6,
+    "name": "Gold sweet apple",
+    "price": 35,
+    "characteristics":{
+      "color": "yellow",
+      "taste": "sweet"
+    }
+  },
+  {
+    "id":7,
+    "name": "Green acidic apple",
+    "price": 11,
+    "characteristics":{
+      "color": "green",
+      "taste": "acidic"
+    }
+  },
+  {
+    "id":8,
+    "name": "Gold loud sweet cash",
+    "price": 0.001,
+    "characteristics":{
+      "color": "gold",
+      "sounds": "loud",
+      "taste": "sweet"
+    }
+  },
+  {
+    "id":9,
+    "name": "Small red button",
+    "price": 30,
+    "characteristics":{
+      "size": "small",
+      "color": "red"
+    }
+  },
+  {
+    "id":10,
+    "name": "Big red button",
+    "price": 70,
+    "characteristics":{
+      "size": "big"
+    }
+  },
+  {
+    "id":6,
+    "name": "Gold sweet apple",
+    "price": 35,
+    "characteristics":{
+      "color": "gold",
+      "taste": "sweet"
+    }
+  }
+]
